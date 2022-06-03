@@ -66,3 +66,72 @@ person2.getHeight= function(){
 person2.getHeight();
 
 ```
+
+### Example (3)
+
+```bash
+class Movie {
+    constructor(name,year, review){
+        this.name=name;
+        this.year=year;
+        this.review=review;
+    }
+
+    updateReviews(review){
+        this.review= review;
+        return this;
+    }
+
+    getMovieNameAndYear(){
+        return { year: this.year , name :this.name }
+    }
+
+}
+
+/** To create object we need to use new keyword */
+const movie1 = new Movie('RRR','2022','3.9');
+console.log(movie1.updateReviews("4.2"));
+console.log(movie1.getMovieNameAndYear());
+
+
+const movie2 = new Movie('KGF Chapter2','2022','3.7');
+console.log(movie2.updateReviews("4.0"));
+console.log(movie2.getMovieNameAndYear());
+
+```
+
+### Example (4)
+
+```bash
+class Movie2 {
+    constructor(name,year, review){
+        this.name=name;
+        this.year=year;
+        this.review=review;
+    }
+
+    updateReviews(review){
+        this.review= review;
+        return this;
+    }
+
+    getMovieNameAndYear(){
+        return { year: this.year , name :this.name }
+    }
+}
+
+class Hollywood extends Movie2{
+    constructor(name,year, review, budget){
+        super(name,year,review);
+        this.budget =budget;
+    }
+
+    getMovieYear(){
+        return this.year;
+    }
+}
+
+const hyMovie = new Hollywood('Peter Rabbit','2021','3.2','High');
+console.log(hyMovie.getMovieNameAndYear())
+console.log(hyMovie.updateReviews('4.2'))
+```
