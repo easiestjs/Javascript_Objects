@@ -126,5 +126,4 @@ const hyMovie = new Hollywood('Peter Rabbit','2021','3.2','High');
 console.log(hyMovie.getMovieNameAndYear())
 console.log(hyMovie.updateReviews('4.2'))
 
-
 /** Example 04 Adding Inheritance*/
