@@ -135,3 +135,65 @@ const hyMovie = new Hollywood('Peter Rabbit','2021','3.2','High');
 console.log(hyMovie.getMovieNameAndYear())
 console.log(hyMovie.updateReviews('4.2'))
 ```
+
+### Example (5)
+```bash
+
+function Laptop(brand, processor, price, reviews) {
+    this.brand = brand;
+    this.processor = processor;
+    this.price = price;
+    this.reviews = reviews;
+    this.getBrand = function(){
+        return this.brand;
+    }
+}
+
+
+const laptop1 = new Laptop('HP','I5','50000','3.2k');
+console.log(laptop1)
+console.log(laptop1.getBrand())
+const laptop2 = new Laptop('Acer','I5','45000','2.9k');
+console.log(laptop2)
+console.log(laptop2.getBrand())
+
+```
+
+### Example (6)
+```bash
+function Laptop2(brand, processor, price, reviews) {
+    this.brand = brand;
+    this.processor = processor;
+    this.price = price;
+    this.reviews = reviews;
+}
+
+Laptop2.prototype.getBrand = function(){
+    return this.brand;
+}
+
+const ilaptop = new Laptop2('HP','I5','50000','3.2k');
+ilaptop.reviews='3.5k'
+console.log(ilaptop)
+console.log(ilaptop.getBrand())
+
+const ilaptop1 = new Laptop2('Acer','I5','45000','2.9k');
+console.log(ilaptop1)
+console.log(ilaptop1.getBrand())
+
+/**Adding inheritance using prototype */
+function AppleLaptop(...args){
+    Laptop2.apply(this,args);
+}
+
+AppleLaptop.prototype = Object.create(Laptop2.prototype);
+
+AppleLaptop.prototype.getPrice=function(){
+    return this.price;
+}
+const appleLap = new AppleLaptop('Apple','Apple','150000','4.0k');
+console.log(appleLap);
+console.log(appleLap.getBrand())
+console.log(appleLap.getPrice())
+
+```
